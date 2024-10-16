@@ -82,7 +82,7 @@ const userController = {
     getMyJobs: async (req,res) => { 
         try {
             const fetchJobs = await jobs.find({postedBy : req.data._id}).lean()
-            res.status(200).json({ success: false, message: "Data fetched successfully", data: fetchJobs })
+            res.status(200).json({ success: true, message: "Data fetched successfully", data: fetchJobs })
         } catch (error) {
             res.status(403).json({ success: false, message: error.message, data: {} })
         }

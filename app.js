@@ -22,3 +22,8 @@ mongoose.connect(process.env.MONGO_DB_URL).then((res) => {
 })
 
 app.use("/api/v1",userRoute)
+
+app.use(express.static("app"))
+app.get("/",(req,res) => {
+    res.sendFile(path.join(__dirname , app , 'index.html'))
+})
